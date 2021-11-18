@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moeda</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: rgba(20, 15, 83, 0.555);
+            margin-top: 200px;
+        }
+        div#conver{
+            border: 1px solid black;
+            display: inline-block;
+            border-radius:6px;
+            padding: 4px;
+            background-color: rgb(184, 11, 132);
+            color: white;
+            font-weight: bold;
+        }
+        h2{
+            border: 1px solid black;
+            margin-bottom: 1%;
+            display: inline-block;
+            border-radius: 6px;
+            padding: 4px;
+            background-color: orange;
+        }
+
+        button{
+            margin: 4px;
+        }
+    </style>
+    <script>
+        function Converter(){
+            var precoDolar = document.getElementById("precoDolar");
+            var precodolar = precoDolar.value;
+            var precoEmDolar = parseFloat(precodolar);
+
+            var valorDolar = document.getElementById("dolar");
+            var dolar = valorDolar.value;
+            var valorEmDolar = parseFloat(dolar);
+
+            var precoFinal =  valorEmDolar * precoEmDolar;
+
+            var elementoConvertido = document.getElementById("valorConvertido")
+            var valorConvertido = "Com a cotação atual o valor de U$ " + valorEmDolar.toFixed(2) + " equivale a R$ " + precoFinal.toFixed(2)
+            elementoConvertido.innerHTML = valorConvertido
+        }
+           
+
+    </script>
+</head>
+<body>
+    <h2>Conversor de Dolar para Real</h2></br>
+    <div id="conver">
+        <label >Insira o preço do dólar </label></br>
+        <input type="number" id="precoDolar" size="2"><br> 
+        
+        <label >Insira o valor que deseja converter </label></br>
+        <input type="number" id="dolar" size="2"><br> 
+        
+        <button type="submit" onclick="Converter()">Converter</button> 
+        <h3 id="valorConvertido"></h3>
+    </div>    
+</body>
+</html>
