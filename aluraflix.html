@@ -9,6 +9,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Outfit:wght@600&display=swap');
         
+        div#listaFilmes > img{
+            max-width: 200px;
+            max-height: 800px;
+            text-align: center;
+            margin: 10px;
+        }
         body{
             text-align: center;
             background-image: url("https://s2.glbimg.com/2C0hMRuCY_7NfDPjby4_Bjmq8Nc=/e.glbimg.com/og/ed/f/original/2018/03/22/avengers-infinity-war-official-poster-2018-4o.jpg");
@@ -48,11 +54,16 @@
     <script>
         var filmes = []
         function adicionar(){
-            filmes.push(document.getElementById("filme"))
+            var filmeFavorito = document.getElementById("filme").value
+            var elementoFilmeFavorito = "<img src=" + filmeFavorito + ">"
+            var elementoListaFilme = document.getElementById("listaFilmes")
+            elementoListaFilme.innerHTML = elementoListaFilme.innerHTML + elementoFilmeFavorito
+            document.getElementById('filme').value = ""
         }
 
         function mostrar(){
-            document.write("<p>" + filmes + "</p>")
+            document.write("<img src=" + filmes + ">")
+            filmes.push(document.getElementById("filme").value)
         }
     </script>
 </head>
@@ -60,10 +71,12 @@
     <h2>Aluraflix</h2><br>
     <div id="formFilme">
         <label>Qual seu filme favorito?</label><br>
-        <input type="url" id="filme"><br>
-        <button type="submit" onclick="adicionar">Adicionar Filme</button>
-        <button type="submit" onclick="mostrar">Ver Coleção</button>
+        <input type="url" id="filme" placeholder="Insira o endereço da imagem"><br>
+        <button type="submit" onclick="adicionar()">Adicionar Filme</button>
+        <button type="submit" onclick="mostrar()">Ver Coleção</button>
     </div>   
-        
+    <div id="listaFilmes">
+
+    </div>    
 </body>
 </html>
